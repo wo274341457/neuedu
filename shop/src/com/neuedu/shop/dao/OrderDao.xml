@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.neuedu.shop.dao.OrderDao">
+
+	<insert id="insertOrder">
+		insert into s_order values(null,#{order.member_id},#{order.shop_id},#{order.state})		
+	</insert>
+	<select id="selectOrders" resultType="com.neuedu.shop.entity.Order">
+	select * from s_order
+	</select>
+	
+</mapper>

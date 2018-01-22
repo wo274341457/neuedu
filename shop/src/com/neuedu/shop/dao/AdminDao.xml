@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.shop.dao.AdminDao">
+<select id="selectShops" resultType="com.neuedu.shop.entity.Shop">
+select * from s_shop
+
+</select>
+<insert id="insertShop">
+insert into s_shop values(#{shop.id}, #{shop.name}, #{shop.price}, #{shop.count}, #{shop.type_id})
+</insert>
+<delete id="deleteShop">
+delete from s_shop where id=#{id}
+</delete>
+<update id="updateShop">
+update s_shop set name=#{shop.name},price=#{shop.price},count=#{shop.count},type_id=#{shop.type_id} where id=#{shop.id}
+</update>
+
+
+
+</mapper>

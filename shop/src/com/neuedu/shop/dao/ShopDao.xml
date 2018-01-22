@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.neuedu.shop.dao.ShopDao">
+
+	<select id="selectShopByTypeID" resultType="com.neuedu.shop.entity.Shop">
+		select * from s_shop where type_id = #{type_id}	
+	</select>
+	
+	<select id="selectShopById" resultType="com.neuedu.shop.entity.Shop">
+		select * from s_shop where id = #{id}	
+	</select>
+	
+	<update id="updateShop">
+		update s_shop set name = #{shop.name},price = #{shop.price},count = #{shop.count} where id = #{shop.id}
+	</update>
+	
+</mapper>

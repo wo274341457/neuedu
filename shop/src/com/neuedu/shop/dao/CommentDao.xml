@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.neuedu.shop.dao.CommentDao">
+
+	<resultMap type="com.neuedu.shop.entity.Comment" id="Comment">
+		<id property="id" column="id"/>
+		<result property="member_id" column="member_id"/>
+		<result property="shop_id" column="shop_id"/>
+		<result property="content" column="content"/>
+		<association property="shop" javaType="com.neuedu.shop.entity.Shop">
+			<result property="name" column="name"/>
+		</association>
+		<association property="member" javaType="com.neuedu.shop.entity.Member">
+			<result property="username" column="username"/>
+		</association>
+	</resultMap>
+
+	<select id="selectCommentsByShopid" resultMap="Comment">
+		select c.id id,member_id,shop_id,content,m.username username,s.name name from s_comment c,
+			s_shop s,s_member m where member_id = m.id and shop_id = s.id and shop_id = #{shop_id}
+	</select>
+
+</mapper>
